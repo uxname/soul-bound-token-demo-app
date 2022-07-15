@@ -1,8 +1,16 @@
-import React, {ReactNode} from 'react';
+import React, {ReactNode, useState} from 'react';
 import {AddressTag, Htag, P, SBTCard, AddCard, MyAccount, MySoul} from '../../components';
 import styles from './exchange.module.scss';
+import {activateWallet} from '../../utils/activateWallet';
 
 export default function ExchangePage(): ReactNode {
+
+    const [wallet, setWallet] = useState<string>('Connect wallet');
+
+    const connectWallet = async () => {
+        const connectWalletData = await activateWallet();
+        setWallet(connectWalletData);
+    };
 
     return (
         <div className={styles.layout}>
@@ -25,6 +33,7 @@ export default function ExchangePage(): ReactNode {
             <div className={styles.sidebar}>
                 <MyAccount>0:b601...e0dchfghfffgd</MyAccount>
                 <MySoul/>
+                <button onClick={() => connectWallet()}>{wallet}</button>
             </div>
             <div className={styles.sbt_info_side}>
                 <Htag color="white">Cross-Chain Master</Htag>

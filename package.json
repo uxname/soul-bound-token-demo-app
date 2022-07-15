@@ -18,6 +18,7 @@
         "apollo3-cache-persist": "^0.14.0",
         "classnames": "^2.3.1",
         "dotenv": "^16.0.1",
+        "everscale-inpage-provider": "^0.3.28",
         "graphql": "^16.5.0",
         "micro": "^9.3.4",
         "next": "latest",
