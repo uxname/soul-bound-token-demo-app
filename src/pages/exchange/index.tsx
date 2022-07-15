@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react';
-import {AddressTag, Htag, P, SBTCard, AddCard} from '../../components';
+import {AddressTag, Htag, P, SBTCard, AddCard, MyAccount, MySoul} from '../../components';
 import styles from './exchange.module.scss';
 
 export default function ExchangePage(): ReactNode {
@@ -22,7 +22,13 @@ export default function ExchangePage(): ReactNode {
                     <AddCard/>
                 </div>
             </div>
-            <div className={styles.sidebar}>Sidebar</div>
+            <div className={styles.sidebar}>
+                <MyAccount>0:b601...e0dchfghfffgd</MyAccount>
+                <MySoul/>
+            </div>
+            <div className={styles.sbt_info_side}>
+                <Htag color="white">Cross-Chain Master</Htag>
+            </div>
         </div>
     );
 }

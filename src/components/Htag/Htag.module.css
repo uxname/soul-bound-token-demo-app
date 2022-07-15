@@ -3,6 +3,12 @@
 	font-size: 46px;
 	line-height: 160%;
 	margin: 0;
-	color: #2F2233;
 }
 
+.white {
+	color: #FFFFFF;
+}
+
+.black {
+	color: #2F2233;
+}
