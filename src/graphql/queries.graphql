@@ -1,0 +1,7 @@
+query Debug {
+    debug
+}
+
+mutation Echo($text: String!) {
+    echo(text: $text)
+}

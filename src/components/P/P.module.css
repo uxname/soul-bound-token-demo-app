@@ -1,0 +1,32 @@
+.p {
+	margin: 0;
+	line-height: 160%;
+}
+
+.s {
+	font-size: 16px;
+}
+
+.m {
+	font-size: 18px;
+}
+
+.l {
+	font-size: 20px;
+}
+
+.xl {
+	font-size: 22px;
+}
+
+.thin {
+	font-weight: 400;
+}
+
+.normal {
+	font-weight: 500;
+}
+
+.bold {
+	font-weight: 700;
+}

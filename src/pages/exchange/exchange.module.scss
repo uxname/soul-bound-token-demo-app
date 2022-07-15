@@ -1,0 +1,39 @@
+.layout {
+  display: grid;
+  grid-template-columns: auto minmax(320px, 1100px) 300px auto;
+  min-height: 100vh;
+  gap: 0 40px;
+  padding-bottom: 50px;
+  grid-template-areas:
+          ". body sidebar .";
+}
+
+.body {
+  grid-area: body;
+  padding-top: 40px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.list {
+  margin-top: 30px;
+  padding-left: 50px;
+
+  li {
+    font-size: 22px;
+    margin: 20px 0;
+
+    span {
+      font-weight: 700;
+    }
+  }
+}
+
+.sbts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 38px;
+  margin-top: 50px;
+}

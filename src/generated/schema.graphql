@@ -1,0 +1,16 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+scalar Date
+
+scalar Json
+
+type Mutation {
+  echo(text: String!): String!
+}
+
+type Query {
+  debug: Json
+}

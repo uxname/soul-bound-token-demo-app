@@ -1,0 +1,27 @@
+.add_card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  min-height: 344px;
+  padding: 10px 19px 25px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+  box-shadow: 0 4px 37px rgba(54, 33, 132, 0.11), 0 4px 37px rgba(54, 33, 132, 0.11);
+  border-radius: 20px;
+  transition: all .2s;
+
+  span {
+    background: linear-gradient(112.95deg, #5755FF -13.39%, #FF8AA6 118.44%), #2F2233;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    font-weight: 600;
+    font-size: 60px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0 4px 37px rgba(54, 33, 132, 0.22), 0 4px 37px rgba(54, 33, 132, 0.24);
+  }
+}
