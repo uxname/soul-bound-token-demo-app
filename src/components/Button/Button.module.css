@@ -1,0 +1,35 @@
+.button {
+	display: inline-block;
+	box-sizing: border-box;
+	padding: 10px;
+	cursor: pointer;
+	text-align: center;
+	border: none;
+	border-radius: 5px;
+	font-size: 14px;
+}
+
+.primary {
+}
+
+.primary:hover {
+
+}
+
+.ghost {
+
+}
+
+.ghost:hover {
+
+}
+
+.arrow {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+.down {
+	transform: rotate(90deg);
+	transition: all 0.2s;
+}

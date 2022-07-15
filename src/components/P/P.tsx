@@ -10,6 +10,8 @@ export const P = ({size = 'xl', weight = 'thin', children, className, ...props}:
                 [styles.s]: size === 's',
                 [styles.m]: size === 'm',
                 [styles.l]: size === 'l',
+                [styles.xl]: size === 'xl',
+                [styles.xxl]: size === 'xxl',
                 [styles.thin]: weight === 'thin',
                 [styles.normal]: weight === 'normal',
                 [styles.bold]: weight === 'bold'
