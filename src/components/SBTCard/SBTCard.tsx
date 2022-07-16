@@ -6,11 +6,21 @@ import {P} from '../P/P';
 import Link from 'next/link';
 
 // eslint-disable-next-line camelcase
-export const SBTCard = ({image, address, ownerIcon, ownerAddress, name, creator_name, ...props}: SBTCardProps): JSX.Element => {
+export const SBTCard = ({
+    image,
+    address,
+    ownerIcon,
+    ownerAddress,
+    name,
+    // eslint-disable-next-line camelcase
+    creator_name,
+    ...props
+}: SBTCardProps): JSX.Element => {
     return (
         <div className={styles.sbt_card} {...props}>
             <div className={styles.top}>
-                <Link href={`https://net.ever.live/accounts/accountDetails?id=${address}`}><a target={'_blank'} style={{textDecoration: 'none'}}>
+                <Link href={`https://net.ever.live/accounts/accountDetails?id=${address}`}><a target={'_blank'}
+                    style={{textDecoration: 'none'}}>
                     <AddressTag size="s" address={address}/>
                 </a></Link>
             </div>
@@ -24,7 +34,8 @@ export const SBTCard = ({image, address, ownerIcon, ownerAddress, name, creator_
                     {/* eslint-disable-next-line camelcase */}
                     <P size="s" weight="bold">{creator_name}</P>
                 </div>
-                <Link href={`https://net.ever.live/accounts/accountDetails?id=${ownerAddress}`}><a target={'_blank'} style={{textDecoration: 'none'}}>
+                <Link href={`https://net.ever.live/accounts/accountDetails?id=${ownerAddress}`}><a target={'_blank'}
+                    style={{textDecoration: 'none'}}>
                     <AddressTag size="s" address={ownerAddress}/>
                 </a></Link>
             </div>

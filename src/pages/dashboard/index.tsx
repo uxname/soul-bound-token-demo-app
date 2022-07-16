@@ -1,15 +1,15 @@
 import React, {ReactNode, useEffect, useState} from 'react';
 import {
-    AddressTag,
-    Htag,
-    P,
-    SBTCard,
     AddCard,
+    AddressTag,
+    Button,
+    Htag,
+    Input,
     MyAccount,
     MySoul,
+    P,
     PremiumTrader,
-    Button,
-    Input,
+    SBTCard,
     SlideTab
 } from '../../components';
 import styles from './dashboard.module.scss';
@@ -55,7 +55,15 @@ export default function DashboardPage(): ReactNode {
                 const nftData = JSON.parse(await getJsonDataNft(useNftAddress));
                 const arr = nftsArray;
                 // eslint-disable-next-line camelcase
-                const params: INftData = {address: useNftAddress, image: nftData.image, creator_name: nftData.creator_name, name: nftData.name, description: nftData.description, attributes: nftData.attributes};
+                const params: INftData = {
+                    address: useNftAddress,
+                    image: nftData.image,
+                    // eslint-disable-next-line camelcase
+                    creator_name: nftData.creator_name,
+                    name: nftData.name,
+                    description: nftData.description,
+                    attributes: nftData.attributes
+                };
                 arr.push(params);
                 setNftsArray(arr);
                 closeModal();
@@ -91,9 +99,18 @@ export default function DashboardPage(): ReactNode {
                 <Htag style={{marginBottom: '15px'}}>Share your SBTs to onboard</Htag>
                 <P>Import the following SBTs to upgrade your trader profile:</P>
                 <ul className={styles.list}>
-                    <li><span>Experienced Trader Level 5</span> by Uniswap <Link href={`https://net.ever.live/accounts/accountDetails?id=${collAddress}`}><a target={'_blank'} style={{textDecoration: 'none'}}><AddressTag address={collAddress}/></a></Link></li>
-                    <li><span>Cross-Chain Master</span> by Octus Bridge <Link href={`https://net.ever.live/accounts/accountDetails?id=${collAddress}`}><a target={'_blank'} style={{textDecoration: 'none'}}><AddressTag address={collAddress}/></a></Link></li>
-                    <li><span>Premium Club Member</span> by GrandBazar.io <Link href={`https://net.ever.live/accounts/accountDetails?id=${collAddress}`}><a target={'_blank'} style={{textDecoration: 'none'}}><AddressTag address={collAddress}/></a></Link></li>
+                    <li><span>Experienced Trader Level 5</span> by Uniswap <Link
+                        href={`https://net.ever.live/accounts/accountDetails?id=${collAddress}`}><a target={'_blank'}
+                            style={{textDecoration: 'none'}}><AddressTag
+                                address={collAddress}/></a></Link></li>
+                    <li><span>Cross-Chain Master</span> by Octus Bridge <Link
+                        href={`https://net.ever.live/accounts/accountDetails?id=${collAddress}`}><a target={'_blank'}
+                            style={{textDecoration: 'none'}}><AddressTag
+                                address={collAddress}/></a></Link></li>
+                    <li><span>Premium Club Member</span> by GrandBazar.io <Link
+                        href={`https://net.ever.live/accounts/accountDetails?id=${collAddress}`}><a target={'_blank'}
+                            style={{textDecoration: 'none'}}><AddressTag
+                                address={collAddress}/></a></Link></li>
                 </ul>
                 <div className={styles.sbts}>
                     {nftsArray.map((nft, index) => {
@@ -101,7 +118,8 @@ export default function DashboardPage(): ReactNode {
                             <SBTCard onClick={() => {
                                 setSlideIsOpen(!slideIsOpen);
                                 setSelectedNft(nft);
-                            }} image={nft.image} name={nft.name} creator_name={nft.creator_name} address={nft.address} ownerIcon="/assets/owner_icon.png" ownerAddress={collAddress}/>
+                            }} image={nft.image} name={nft.name} creator_name={nft.creator_name} address={nft.address}
+                            ownerIcon="/assets/owner_icon.png" ownerAddress={collAddress}/>
                         </div>;
                     })}
                     <SlideTab isOpen={slideIsOpen} data={selectedNft}/>
@@ -134,10 +152,14 @@ export default function DashboardPage(): ReactNode {
                         }}
                     >
                         <P size="xxl" weight="bold" style={{textAlign: 'center'}}>Enter your SBT token address</P>
-                        <div style={{display: 'flex', justifyContent: 'space-between',
-                            alignItems: 'center', gap: '30px', marginTop: '30px'}}>
-                            <Input error={inputNftError} errorText="Error. This SBT is not related to your Soul." id={'nft_address_id'}/>
-                            <Button appearance="purple" onClick={() => areSoulsIdentical((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim())}>Import</Button>
+                        <div style={{
+                            display: 'flex', justifyContent: 'space-between',
+                            alignItems: 'center', gap: '30px', marginTop: '30px'
+                        }}>
+                            <Input error={inputNftError} errorText="Error. This SBT is not related to your Soul."
+                                id={'nft_address_id'}/>
+                            <Button appearance="purple"
+                                onClick={() => areSoulsIdentical((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim())}>Import</Button>
                         </div>
                     </Modal>
                 </div>

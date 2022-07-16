@@ -1,6 +1,6 @@
 schema {
-  query: Query
-  mutation: Mutation
+    query: Query
+    mutation: Mutation
 }
 
 scalar Date
@@ -8,9 +8,9 @@ scalar Date
 scalar Json
 
 type Mutation {
-  echo(text: String!): String!
+    echo(text: String!): String!
 }
 
 type Query {
-  debug: Json
+    debug: Json
 }

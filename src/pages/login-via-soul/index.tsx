@@ -59,7 +59,8 @@ export default function LoginViaSoulPage(): ReactNode {
                 <P size="xxl" weight="bold" style={{marginBottom: '22px'}}>Enter your Soul contract address.<br/>
                     Don’t have? Go here to create one.</P>
                 <Input placeholder="Enter contract address" id={'soul_address_id'} disabled={!isWalletConnected}/>
-                <Button appearance="purple" wide onClick={() => checkSoul()} disabled={!isWalletConnected}>Login via Soul</Button>
+                <Button appearance="purple" wide onClick={() => checkSoul()} disabled={!isWalletConnected}>Login via
+                    Soul</Button>
             </div>
             <ModalError modalIsOpen={modalIsOpen} closeModal={() => setModalIsOpen(false)} text={modalText}/>
         </div>

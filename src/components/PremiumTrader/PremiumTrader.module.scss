@@ -1,35 +1,35 @@
 .premium_trader {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
-	border-radius: 15px;
-	border: 2px solid #7DC391;
-	background: #ffffff;
-	text-align: center;
-	padding: 30px 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  border-radius: 15px;
+  border: 2px solid #7DC391;
+  background: #ffffff;
+  text-align: center;
+  padding: 30px 20px 10px;
 
-	.header {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background: #9F9EEE;
-		height: 55px;
-		color: #FFFFFF;
-		font-size: 20px;
-		border-radius: 15px 15px 0 0;
-	}
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #9F9EEE;
+    height: 55px;
+    color: #FFFFFF;
+    font-size: 20px;
+    border-radius: 15px 15px 0 0;
+  }
 
-	.line {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		padding: 20px;
+  .line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
 
-		&:nth-child(2) {
-			border-bottom: 1px solid rgba(159, 158, 238, 0.25);
-		}
-	}
+    &:nth-child(2) {
+      border-bottom: 1px solid rgba(159, 158, 238, 0.25);
+    }
+  }
 }
 
 

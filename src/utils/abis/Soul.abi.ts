@@ -8,32 +8,28 @@ export const soulAbi = {
             inputs: [
                 {name: 'firstOwnerPubKey', type: 'uint256'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'setVoteMinThreshold',
             inputs: [
                 {name: 'threshold', type: 'uint256'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'addOwner',
             inputs: [
                 {name: 'ownerPubKey', type: 'uint256'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'removeOwner',
             inputs: [
                 {name: 'ownerPubKey', type: 'uint256'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'approveSbt',
@@ -41,38 +37,32 @@ export const soulAbi = {
                 {name: 'sbtAddress', type: 'address'},
                 {name: 'approve', type: 'bool'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: '_owners',
-            inputs: [
-            ],
+            inputs: [],
             outputs: [
                 {name: '_owners', type: 'map(uint256,bool)'}
             ]
         },
         {
             name: '_voteMinThreshold',
-            inputs: [
-            ],
+            inputs: [],
             outputs: [
                 {name: '_voteMinThreshold', type: 'uint256'}
             ]
         },
         {
             name: '_approvedSbt',
-            inputs: [
-            ],
+            inputs: [],
             outputs: [
                 {name: '_approvedSbt', type: 'map(address,bool)'}
             ]
         }
     ],
-    data: [
-    ],
-    events: [
-    ],
+    data: [],
+    events: [],
     fields: [
         {name: '_pubkey', type: 'uint256'},
         {name: '_timestamp', type: 'uint64'},

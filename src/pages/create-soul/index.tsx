@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react';
-import {Button, P, Input} from '../../components';
+import {Button, Input, P} from '../../components';
 import styles from './create-soul.module.scss';
 
 

@@ -12,18 +12,20 @@ export const nftAbi = {
                 {name: 'json', type: 'string'},
                 {name: 'ownerSoul', type: 'address'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'transfer',
             inputs: [
                 {name: 'to', type: 'address'},
                 {name: 'sendGasTo', type: 'address'},
-                {components: [{name: 'value', type: 'uint128'}, {name: 'payload', type: 'cell'}], name: 'callbacks', type: 'map(address,tuple)'}
+                {
+                    components: [{name: 'value', type: 'uint128'}, {name: 'payload', type: 'cell'}],
+                    name: 'callbacks',
+                    type: 'map(address,tuple)'
+                }
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'getJson',
@@ -39,20 +41,26 @@ export const nftAbi = {
             inputs: [
                 {name: 'newOwner', type: 'address'},
                 {name: 'sendGasTo', type: 'address'},
-                {components: [{name: 'value', type: 'uint128'}, {name: 'payload', type: 'cell'}], name: 'callbacks', type: 'map(address,tuple)'}
+                {
+                    components: [{name: 'value', type: 'uint128'}, {name: 'payload', type: 'cell'}],
+                    name: 'callbacks',
+                    type: 'map(address,tuple)'
+                }
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'changeManager',
             inputs: [
                 {name: 'newManager', type: 'address'},
                 {name: 'sendGasTo', type: 'address'},
-                {components: [{name: 'value', type: 'uint128'}, {name: 'payload', type: 'cell'}], name: 'callbacks', type: 'map(address,tuple)'}
+                {
+                    components: [{name: 'value', type: 'uint128'}, {name: 'payload', type: 'cell'}],
+                    name: 'callbacks',
+                    type: 'map(address,tuple)'
+                }
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'getInfo',
@@ -78,8 +86,7 @@ export const nftAbi = {
         },
         {
             name: '_ownerSoul',
-            inputs: [
-            ],
+            inputs: [],
             outputs: [
                 {name: '_ownerSoul', type: 'address'}
             ]
@@ -97,8 +104,7 @@ export const nftAbi = {
                 {name: 'manager', type: 'address'},
                 {name: 'collection', type: 'address'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'OwnerChanged',
@@ -106,8 +112,7 @@ export const nftAbi = {
                 {name: 'oldOwner', type: 'address'},
                 {name: 'newOwner', type: 'address'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'ManagerChanged',
@@ -115,8 +120,7 @@ export const nftAbi = {
                 {name: 'oldManager', type: 'address'},
                 {name: 'newManager', type: 'address'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'NftBurned',
@@ -126,8 +130,7 @@ export const nftAbi = {
                 {name: 'manager', type: 'address'},
                 {name: 'collection', type: 'address'}
             ],
-            outputs: [
-            ]
+            outputs: []
         }
     ],
     fields: [

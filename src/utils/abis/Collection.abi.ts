@@ -12,8 +12,7 @@ export const collectionAbi = {
                 {name: 'name', type: 'string'},
                 {name: 'schemaUri', type: 'string'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'mintNft',
@@ -21,16 +20,14 @@ export const collectionAbi = {
                 {name: 'json', type: 'string'},
                 {name: 'ownerSoul', type: 'address'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'setRemainOnNft',
             inputs: [
                 {name: 'remainOnNft', type: 'uint128'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'owner',
@@ -46,8 +43,7 @@ export const collectionAbi = {
             inputs: [
                 {name: 'newOwner', type: 'uint256'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'getJson',
@@ -107,23 +103,20 @@ export const collectionAbi = {
         },
         {
             name: '_name',
-            inputs: [
-            ],
+            inputs: [],
             outputs: [
                 {name: '_name', type: 'string'}
             ]
         },
         {
             name: '_schemaUri',
-            inputs: [
-            ],
+            inputs: [],
             outputs: [
                 {name: '_schemaUri', type: 'string'}
             ]
         }
     ],
-    data: [
-    ],
+    data: [],
     events: [
         {
             name: 'OwnershipTransferred',
@@ -131,8 +124,7 @@ export const collectionAbi = {
                 {name: 'oldOwner', type: 'uint256'},
                 {name: 'newOwner', type: 'uint256'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'NftCreated',
@@ -143,8 +135,7 @@ export const collectionAbi = {
                 {name: 'manager', type: 'address'},
                 {name: 'creator', type: 'address'}
             ],
-            outputs: [
-            ]
+            outputs: []
         },
         {
             name: 'NftBurned',
@@ -154,8 +145,7 @@ export const collectionAbi = {
                 {name: 'owner', type: 'address'},
                 {name: 'manager', type: 'address'}
             ],
-            outputs: [
-            ]
+            outputs: []
         }
     ],
     fields: [

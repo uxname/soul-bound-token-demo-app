@@ -1,5 +1,5 @@
 import React, {ReactNode} from 'react';
-import {Button, MyAccount, P} from '../../components';
+import {MyAccount, P} from '../../components';
 import styles from './connect-wallet.module.scss';
 // import CopyIcon from '../../../public/assets/copy_icon.svg';
 

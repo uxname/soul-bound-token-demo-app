@@ -1,6 +1,7 @@
 /* eslint-disable */
-import { gql } from '@apollo/client';
 import * as Apollo from '@apollo/client';
+import {gql} from '@apollo/client';
+
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -9,28 +10,28 @@ export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Mayb
 const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: string;
-  String: string;
-  Boolean: boolean;
-  Int: number;
-  Float: number;
-  Date: any;
-  Json: any;
+    ID: string;
+    String: string;
+    Boolean: boolean;
+    Int: number;
+    Float: number;
+    Date: any;
+    Json: any;
 };
 
 export type Mutation = {
-  __typename?: 'Mutation';
-  echo: Scalars['String'];
+    __typename?: 'Mutation';
+    echo: Scalars['String'];
 };
 
 
 export type MutationEchoArgs = {
-  text: Scalars['String'];
+    text: Scalars['String'];
 };
 
 export type Query = {
-  __typename?: 'Query';
-  debug?: Maybe<Scalars['Json']>;
+    __typename?: 'Query';
+    debug?: Maybe<Scalars['Json']>;
 };
 
 export type DebugQueryVariables = Exact<{ [key: string]: never; }>;
@@ -39,7 +40,7 @@ export type DebugQueryVariables = Exact<{ [key: string]: never; }>;
 export type DebugQuery = { __typename?: 'Query', debug?: any | null };
 
 export type EchoMutationVariables = Exact<{
-  text: Scalars['String'];
+    text: Scalars['String'];
 }>;
 
 
@@ -48,9 +49,9 @@ export type EchoMutation = { __typename?: 'Mutation', echo: string };
 
 export const DebugDocument = gql`
     query Debug {
-  debug
-}
-    `;
+        debug
+    }
+`;
 
 /**
  * __useDebugQuery__
@@ -68,21 +69,23 @@ export const DebugDocument = gql`
  * });
  */
 export function useDebugQuery(baseOptions?: Apollo.QueryHookOptions<DebugQuery, DebugQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<DebugQuery, DebugQueryVariables>(DebugDocument, options);
-      }
+    const options = {...defaultOptions, ...baseOptions}
+    return Apollo.useQuery<DebugQuery, DebugQueryVariables>(DebugDocument, options);
+}
+
 export function useDebugLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<DebugQuery, DebugQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<DebugQuery, DebugQueryVariables>(DebugDocument, options);
-        }
+    const options = {...defaultOptions, ...baseOptions}
+    return Apollo.useLazyQuery<DebugQuery, DebugQueryVariables>(DebugDocument, options);
+}
+
 export type DebugQueryHookResult = ReturnType<typeof useDebugQuery>;
 export type DebugLazyQueryHookResult = ReturnType<typeof useDebugLazyQuery>;
 export type DebugQueryResult = Apollo.QueryResult<DebugQuery, DebugQueryVariables>;
 export const EchoDocument = gql`
     mutation Echo($text: String!) {
-  echo(text: $text)
-}
-    `;
+        echo(text: $text)
+    }
+`;
 export type EchoMutationFn = Apollo.MutationFunction<EchoMutation, EchoMutationVariables>;
 
 /**
@@ -103,9 +106,10 @@ export type EchoMutationFn = Apollo.MutationFunction<EchoMutation, EchoMutationV
  * });
  */
 export function useEchoMutation(baseOptions?: Apollo.MutationHookOptions<EchoMutation, EchoMutationVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useMutation<EchoMutation, EchoMutationVariables>(EchoDocument, options);
-      }
+    const options = {...defaultOptions, ...baseOptions}
+    return Apollo.useMutation<EchoMutation, EchoMutationVariables>(EchoDocument, options);
+}
+
 export type EchoMutationHookResult = ReturnType<typeof useEchoMutation>;
 export type EchoMutationResult = Apollo.MutationResult<EchoMutation>;
 export type EchoMutationOptions = Apollo.BaseMutationOptions<EchoMutation, EchoMutationVariables>;
