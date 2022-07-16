@@ -7,3 +7,4 @@ export * from './MyAccount/MyAccount';
 export * from './MySoul/MySoul';
 export * from './PremiumTrader/PremiumTrader';
 export * from './Button/Button';
+export * from './Input/Input';

@@ -1,0 +1,106 @@
+.layout {
+  display: grid;
+  grid-template-rows: 140px auto;
+  min-height: 100vh;
+  gap: 0 40px;
+  padding-bottom: 50px;
+  grid-template-areas:
+          "header"
+          "body1";
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.connect {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 710px;
+  height: 320px;
+  gap: 12px;
+  margin: 0 auto;
+  grid-area: body1;
+  background: #FFFFFF;
+  box-shadow: 0 4px 37px rgba(54, 33, 132, 0.11);
+  border-radius: 15px;
+  text-align: center;
+}
+
+.title {
+  background: linear-gradient(112.95deg, #5755FF -13.39%, #FF8AA6 118.44%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  font-weight: 700;
+  font-size: 100px;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  width: 640px;
+  height: 410px;
+  margin: 30px auto 0;
+  grid-area: form;
+  background: #FFFFFF;
+  box-shadow: 0 4px 37px rgba(54, 33, 132, 0.11);
+  border-radius: 15px;
+  padding: 40px;
+}
+
+.congrats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  width: 640px;
+  height: 410px;
+  margin: 30px auto 0;
+  grid-area: form;
+  background: #FFFFFF;
+  box-shadow: 0 4px 37px rgba(54, 33, 132, 0.11);
+  border: 2px solid #9F6CDA;
+  text-align: center;
+  border-radius: 15px;
+  padding: 40px;
+
+  .contract_link {
+    font-weight: 700;
+    font-size: 22px;
+    background: linear-gradient(112.95deg, #5755FF -13.39%, #FF8AA6 118.44%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    word-break: break-all;
+    position:relative;
+    display:inline-block;
+    padding-bottom:20px;
+    text-decoration: underline;
+
+    svg {
+      cursor: pointer;
+      width: 24px;
+      margin-left: 10px;
+      margin-top: 3px;
+      transition: all .1s;
+
+      &:active {
+        transform: scale(.9);
+      }
+    }
+  }
+}

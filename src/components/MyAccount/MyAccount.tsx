@@ -7,7 +7,7 @@ import OutIcon from '../../../public/assets/out_icon.svg';
 export const MyAccount = ({children, ...props}: MyAccountProps): JSX.Element => {
     return (
         <div className={styles.account} {...props}>
-            <P weight="bold">{children}</P>
+            <P size="m" weight="bold">{children}</P>
             <OutIcon/>
         </div>
     );

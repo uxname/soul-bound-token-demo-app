@@ -1,35 +1,39 @@
 .button {
+	width: fit-content;
+	min-width: 260px;
 	display: inline-block;
 	box-sizing: border-box;
-	padding: 10px;
+	padding: 15px 40px;
 	cursor: pointer;
 	text-align: center;
 	border: none;
-	border-radius: 5px;
-	font-size: 14px;
+	box-shadow: 0 4px 37px rgba(54, 33, 132, 0.11), 0 4px 37px rgba(54, 33, 132, 0.11);
+	border-radius: 15px;
+	font-family: 'Gilroy', sans-serif;
+	font-weight: 700;
+	font-size: 18px;
+	text-transform: uppercase;
+	color: #FFFFFF;
+	transition: all .2s;
 }
 
-.primary {
+.gradient {
+	background: linear-gradient(112.95deg, #5755FF -13.39%, #FF8AA6 118.44%);
 }
 
-.primary:hover {
-
+.gradient:hover {
+	opacity: .9;
 }
 
-.ghost {
-
+.purple {
+	background: #9F9EEE;
 }
 
-.ghost:hover {
-
+.purple:hover {
+	opacity: .9;
 }
 
-.arrow {
-	display: inline-block;
-	margin-left: 10px;
-}
-
-.down {
-	transform: rotate(90deg);
-	transition: all 0.2s;
+.wide {
+	width: 100%;
+	height: 60px;
 }

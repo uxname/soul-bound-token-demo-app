@@ -1,89 +1,24 @@
-import React, {ReactNode, useState} from 'react';
-import {AddressTag, Htag, P, SBTCard, AddCard, MyAccount, MySoul, PremiumTrader, Button} from '../../components';
+import React, {ReactNode} from 'react';
+import {Button, Htag, P} from '../../components';
 import styles from './exchange.module.scss';
-import {activateWallet} from '../../utils/activateWallet';
-import Modal from 'react-modal';
-import {_owners} from '../../utils/soulContractInteraction';
-import {getInfoNft, getJsonDataNft} from '../../utils/nftContractInteraction';
-import {collAddress} from '../../utils/addresses';
 
-const customStyles = {
-    content: {
-        top: '50%',
-        left: '50%',
-        right: 'auto',
-        bottom: 'auto',
-        marginRight: '-50%',
-        transform: 'translate(-50%, -50%)'
-    }
-};
 
 export default function ExchangePage(): ReactNode {
 
-    const [wallet, setWallet] = useState<string>('Connect wallet');
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-
-    function openModal() {
-        setIsOpen(true);
-    }
-
-    function closeModal() {
-        setIsOpen(false);
-    }
-
-    const connectWallet = async () => {
-        const connectWalletData = await activateWallet();
-        setWallet(connectWalletData);
-    };
-
-    const areSoulsIdentical = (useNaftAddress: string) => {
-        console.log(collAddress);
-        console.log(useNaftAddress);
-        console.log(useNaftAddress === collAddress);
-        return useNaftAddress === collAddress;
-    };
-
     return (
         <div className={styles.layout}>
-            <div className={styles.body}>
-                <P style={{marginBottom: '30px'}}>MyAwesomeExchange</P>
-                <Htag style={{marginBottom: '15px'}}>Share your SBTs to onboard</Htag>
-                <P>Import the following SBTs to upgrade your trader profile:</P>
-                <ul className={styles.list}>
-                    <li><span>Experienced Trader Level 5</span> by Uniswap <AddressTag>0:b601...a1cd</AddressTag></li>
-                    <li><span>Cross-Chain Master</span> by Octus Bridge <AddressTag>0:b601...a1cd</AddressTag></li>
-                    <li><span>Premium Club Member</span> by GrandBazar.io <AddressTag>0:b601...a1cd</AddressTag></li>
-                </ul>
-                <div className={styles.sbts}>
-                    <SBTCard image="/assets/sbt_img.png" address="0:b601...a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601...blabla"/>
-                    <SBTCard image="/assets/sbt_img.png" address="0:b601...a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601...blabla"/>
-                    <SBTCard image="/assets/sbt_img.png" address="0:b601...a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601...blabla"/>
-                    <AddCard onClick={() => openModal()}/>
-                    <Modal
-                        isOpen={modalIsOpen}
-                        onRequestClose={closeModal}
-                        contentLabel="Example Modal"
-                        style={customStyles}
-                    >
-                        <P size="xxl" weight="bold">Enter your SBT token address</P>
-                        <Button appearance="primary">sss</Button>
-                    </Modal>
-                </div>
+            <div className={styles.header}>
+                <P weight="bold">The Exchange</P>
+                <Button>Connect EVER Wallet</Button>
             </div>
-            <div className={styles.sidebar}>
-                <MyAccount>0:b601...e0dchfghfffgd</MyAccount>
-                <MySoul/>
-                <PremiumTrader/>
-                <button onClick={() => connectWallet()}>{wallet}</button>
-                <input id={'soul_address_id'} placeholder={'soul contract address'}/>
-                <button onClick={() => _owners((document.getElementById('soul_address_id') as HTMLInputElement)?.value.trim())}>Owner</button>
-                <input id={'nft_address_id'} placeholder={'nft contract address'}/>
-                <button onClick={() => getInfoNft((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim())}>getInfoNft</button>
-                <button onClick={async () => areSoulsIdentical(await getInfoNft((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim()))}>Check valid soul</button>
-                <button onClick={async () => getJsonDataNft((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim())}>Get nft data</button>
+            <div className={styles.body1}>
+                <Htag>Onboard with Identix.SBT</Htag>
+                <P size="xxl" weight="bold">Build Your Web3 Identity and onboard easily<br/>with Soulbound tokens</P>
             </div>
-            <div className={styles.sbt_info_side}>
-                <Htag color="white">Cross-Chain Master</Htag>
+            <div className={styles.body2}>
+                <img src="/assets/Card1.png" alt=""/>
+                <img src="/assets/Card2.png" alt=""/>
+                <img src="/assets/Card3.png" alt=""/>
             </div>
         </div>
     );
