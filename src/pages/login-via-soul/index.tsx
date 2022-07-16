@@ -1,4 +1,4 @@
-import React, {ReactNode, useState} from 'react';
+import React, {ReactNode, useEffect, useState} from 'react';
 import {Button, Input, ModalError, P} from '../../components';
 import styles from './login-via-soul.module.scss';
 import {_owners} from '../../utils/soulContractInteraction';
@@ -13,6 +13,11 @@ export default function LoginViaSoulPage(): ReactNode {
     const [modalText, setModalText] = useState<string>('');
     const [wallet, setWallet] = useState<string>('Connect EVER Wallet');
     const [isWalletConnected, setIsWalletConnected] = useState<boolean>(false);
+
+    // clear localstorage on page load
+    useEffect(() => {
+        localStorage.clear();
+    });
 
     async function checkSoul() {
         try {

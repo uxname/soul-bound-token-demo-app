@@ -3,6 +3,7 @@ import {MyAccountProps} from './MyAccount.props';
 import styles from './MyAccount.module.scss';
 import {P} from '../P/P';
 import OutIcon from '../../../public/assets/out_icon.svg';
+import Link from 'next/link';
 
 function startAndEnd(str: string) {
     const lngth = 30;
@@ -19,7 +20,9 @@ export const MyAccount = ({address, ...props}: MyAccountProps): JSX.Element => {
     return (
         <div className={styles.account} {...props}>
             <P size="m" weight="bold">{startAndEnd(address)}</P>
-            <OutIcon/>
+            <Link href={'/login-via-soul'}>
+                <OutIcon/>
+            </Link>
         </div>
     );
 };
