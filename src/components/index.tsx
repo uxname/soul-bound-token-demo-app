@@ -9,3 +9,4 @@ export * from './PremiumTrader/PremiumTrader';
 export * from './Button/Button';
 export * from './Input/Input';
 export * from './SlideTab/SlideTab';
+export * from './ModalError/ModalError';

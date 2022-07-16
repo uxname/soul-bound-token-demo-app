@@ -1,12 +1,23 @@
 import React, {ReactNode, useState} from 'react';
-import {AddressTag, Htag, P, SBTCard, AddCard, MyAccount, MySoul, PremiumTrader, Button, Input, SlideTab} from '../../components';
+import {
+    AddressTag,
+    Htag,
+    P,
+    SBTCard,
+    AddCard,
+    MyAccount,
+    MySoul,
+    PremiumTrader,
+    Button,
+    Input,
+    SlideTab
+} from '../../components';
 import styles from './dashboard.module.scss';
 import {activateWallet} from '../../utils/activateWallet';
-import Modal from 'react-modal';
 import {_owners} from '../../utils/soulContractInteraction';
 import {getInfoNft, getJsonDataNft} from '../../utils/nftContractInteraction';
 import {collAddress} from '../../utils/addresses';
-
+import Modal from 'react-modal';
 
 export default function DashboardPage(): ReactNode {
 
@@ -50,6 +61,7 @@ export default function DashboardPage(): ReactNode {
                     <SBTCard onClick={() => setSlideIsOpen(!slideIsOpen)} image="/assets/sbt_img.png" address="0:b601dafsd55s7898fdf4asf7hasij5fg89j3a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601fss7g5ds789d09ag7s69blabla"/>
                     <SBTCard onClick={() => setSlideIsOpen(!slideIsOpen)} image="/assets/sbt_img.png" address="0:b601dafsd55s7898fdf4asf7hasij5fg89j3a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601fss7g5ds789d09ag7s69blabla"/>
                     <AddCard onClick={() => openModal()}/>
+                    {/*<ModalError modalIsOpen={modalIsOpen} closeModal={closeModal} text="fndjsfjdbfjdbskjf"/>*/}
                     <Modal
                         isOpen={modalIsOpen}
                         onRequestClose={closeModal}
