@@ -1,5 +1,5 @@
-import {DetailedHTMLProps, HTMLAttributes, ReactNode} from 'react';
+import {DetailedHTMLProps, HTMLAttributes} from 'react';
 
 export interface MyAccountProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-	children: ReactNode;
+	address: string;
 }

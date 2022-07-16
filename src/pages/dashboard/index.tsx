@@ -41,14 +41,14 @@ export default function DashboardPage(): ReactNode {
                 <Htag style={{marginBottom: '15px'}}>Share your SBTs to onboard</Htag>
                 <P>Import the following SBTs to upgrade your trader profile:</P>
                 <ul className={styles.list}>
-                    <li><span>Experienced Trader Level 5</span> by Uniswap <AddressTag>0:b601...a1cd</AddressTag></li>
-                    <li><span>Cross-Chain Master</span> by Octus Bridge <AddressTag>0:b601...a1cd</AddressTag></li>
-                    <li><span>Premium Club Member</span> by GrandBazar.io <AddressTag>0:b601...a1cd</AddressTag></li>
+                    <li><span>Experienced Trader Level 5</span> by Uniswap <AddressTag address="0:62dsfgte3342gdgerg6345v2ui5n2b593343"/></li>
+                    <li><span>Cross-Chain Master</span> by Octus Bridge <AddressTag address="0:62dsfgte3342gdgerg6345v2ui5n2b593343"/></li>
+                    <li><span>Premium Club Member</span> by GrandBazar.io <AddressTag address="0:62dsfgte3342gdgerg6345v2ui5n2b593343"/></li>
                 </ul>
                 <div className={styles.sbts}>
-                    <SBTCard onClick={() => setSlideIsOpen(!slideIsOpen)} image="/assets/sbt_img.png" address="0:b601...a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601...blabla"/>
-                    <SBTCard onClick={() => setSlideIsOpen(!slideIsOpen)} image="/assets/sbt_img.png" address="0:b601...a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601...blabla"/>
-                    <SBTCard onClick={() => setSlideIsOpen(!slideIsOpen)} image="/assets/sbt_img.png" address="0:b601...a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601...blabla"/>
+                    <SBTCard onClick={() => setSlideIsOpen(!slideIsOpen)} image="/assets/sbt_img.png" address="0:b601dafsd55s7898fdf4asf7hasij5fg89j3a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601fss7g5ds789d09ag7s69blabla"/>
+                    <SBTCard onClick={() => setSlideIsOpen(!slideIsOpen)} image="/assets/sbt_img.png" address="0:b601dafsd55s7898fdf4asf7hasij5fg89j3a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601fss7g5ds789d09ag7s69blabla"/>
+                    <SBTCard onClick={() => setSlideIsOpen(!slideIsOpen)} image="/assets/sbt_img.png" address="0:b601dafsd55s7898fdf4asf7hasij5fg89j3a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601fss7g5ds789d09ag7s69blabla"/>
                     <AddCard onClick={() => openModal()}/>
                     <Modal
                         isOpen={modalIsOpen}
@@ -61,7 +61,7 @@ export default function DashboardPage(): ReactNode {
                                 left: '50%',
                                 right: 'auto',
                                 bottom: 'auto',
-                                padding: '30px 45px 50px',
+                                padding: '30px 45px 60px',
                                 marginRight: '-50%',
                                 transform: 'translate(-50%, -50%)',
                                 borderRadius: '15px'
@@ -78,15 +78,16 @@ export default function DashboardPage(): ReactNode {
                         }}
                     >
                         <P size="xxl" weight="bold" style={{textAlign: 'center'}}>Enter your SBT token address</P>
-                        <div style={{display: 'flex', gap: '30px', marginTop: '30px'}}>
-                            <Input/>
+                        <div style={{display: 'flex', justifyContent: 'space-between',
+                            alignItems: 'center', gap: '30px', marginTop: '30px'}}>
+                            <Input error={true} errorText="Error. This SBT is not related to your Soul."/>
                             <Button appearance="purple">sss</Button>
                         </div>
                     </Modal>
                 </div>
             </div>
             <div className={styles.sidebar}>
-                <MyAccount>0:b601...e0dchfghfffgd</MyAccount>
+                <MyAccount address="0:b601afa5fas76f4sa68as90as9s7ae0dchfghfffgd"/>
                 <MySoul/>
                 <PremiumTrader/>
                 <button onClick={() => connectWallet()}>{wallet}</button>

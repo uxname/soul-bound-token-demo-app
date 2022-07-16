@@ -1,9 +1,22 @@
+.wrapper {
+	position: relative;
+	width: 100%;
+	color: #FF3131;
+
+	span {
+		position: absolute;
+		bottom: -30px;
+		left: 15px;
+		font-weight: 500;
+	}
+}
+
 .input {
 	width: 100%;
 	display: inline-block;
 	background: linear-gradient(0deg, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), linear-gradient(112.95deg, #5755FF -13.39%, #FF8AA6 118.44%);
 	border-radius: 15px;
-	border: 0;
+	border: 2px solid transparent;
 	outline: 0;
 	padding: 13px 15px;
 	font-family: 'Gilroy', sans-serif;
@@ -18,4 +31,8 @@
 		 background-clip: text;
 		 text-fill-color: transparent;
 	 }
+
+	&.error {
+		border: 2px solid #FF3131;
+	}
 }

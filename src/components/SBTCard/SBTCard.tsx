@@ -8,7 +8,7 @@ export const SBTCard = ({image, address, ownerIcon, ownerAddress, ...props}: SBT
     return (
         <div className={styles.sbt_card} {...props}>
             <div className={styles.top}>
-                <AddressTag size="s">{address}</AddressTag>
+                <AddressTag size="s" address={address}/>
             </div>
             <div className={styles.info}>
                 <img src={image} alt=""/>
@@ -19,7 +19,7 @@ export const SBTCard = ({image, address, ownerIcon, ownerAddress, ...props}: SBT
                     <img src={ownerIcon} alt=""/>
                     <P size="s" weight="bold">UniSwap</P>
                 </div>
-                <AddressTag size="s">{ownerAddress}</AddressTag>
+                <AddressTag size="s" address={ownerAddress}/>
             </div>
         </div>
     );

@@ -4,10 +4,21 @@ import styles from './MyAccount.module.scss';
 import {P} from '../P/P';
 import OutIcon from '../../../public/assets/out_icon.svg';
 
-export const MyAccount = ({children, ...props}: MyAccountProps): JSX.Element => {
+function startAndEnd(str: string) {
+    const lngth = 30;
+    const gapMin = 0;
+    const gapMax1 = 6;
+    const gapMax2 = 13;
+    if (str && str.length > lngth) {
+        return `${str.substr(gapMin, gapMax1)}...${str.substr(str.length - gapMax2, str.length)}`;
+    }
+    return str;
+}
+
+export const MyAccount = ({address, ...props}: MyAccountProps): JSX.Element => {
     return (
         <div className={styles.account} {...props}>
-            <P size="m" weight="bold">{children}</P>
+            <P size="m" weight="bold">{startAndEnd(address)}</P>
             <OutIcon/>
         </div>
     );

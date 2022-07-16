@@ -1,7 +1,7 @@
 import React, {ReactNode} from 'react';
 import {Button, MyAccount, P} from '../../components';
 import styles from './connect-wallet.module.scss';
-import CopyIcon from '../../../public/assets/copy_icon.svg';
+// import CopyIcon from '../../../public/assets/copy_icon.svg';
 
 
 export default function ConnectWalletPage(): ReactNode {
@@ -10,7 +10,7 @@ export default function ConnectWalletPage(): ReactNode {
         <div className={styles.layout}>
             <div className={styles.header}>
                 <P weight="bold">The Exchange</P>
-                <MyAccount>0:b601...e0dchfghfffgd</MyAccount>
+                <MyAccount address="0:b601afa5fas76f4sa68as90as9s7ae0dchfghfffgd"/>
             </div>
             <div className={styles.body1}>
                 <div className={styles.connect}>

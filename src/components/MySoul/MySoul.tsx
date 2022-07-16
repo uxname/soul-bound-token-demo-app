@@ -12,7 +12,7 @@ export const MySoul = ({...props}: MySoulProps): JSX.Element => {
             </div>
             <div className={styles.line}>
                 <P size="s" weight="bold">Contract</P>
-                <AddressTag size="s">0:62dsd...93343</AddressTag>
+                <AddressTag size="s" address="0:62dsfgte3342gdgerg6345v2ui5n2b593343"/>
             </div>
             <div className={styles.line}>
                 <P size="s" weight="bold">Public key</P>
