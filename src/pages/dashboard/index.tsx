@@ -83,6 +83,7 @@ export default function DashboardPage(): ReactNode {
         })();
     }, []);
 
+    const [selectedNft, setSelectedNft] = useState<INftData>();
     return (
         <div className={styles.layout}>
             <div className={styles.body}>
@@ -99,10 +100,11 @@ export default function DashboardPage(): ReactNode {
                         return <div key={index}>
                             <SBTCard onClick={() => {
                                 setSlideIsOpen(!slideIsOpen);
+                                setSelectedNft(nft);
                             }} image={nft.image} name={nft.name} creator_name={nft.creator_name} address={nft.address} ownerIcon="/assets/owner_icon.png" ownerAddress={collAddress}/>
-                            <SlideTab isOpen={slideIsOpen} data={nft}/>
                         </div>;
                     })}
+                    <SlideTab isOpen={slideIsOpen} data={selectedNft}/>
                     <AddCard onClick={() => openModal()}/>
                     <Modal
                         isOpen={modalIsOpen}

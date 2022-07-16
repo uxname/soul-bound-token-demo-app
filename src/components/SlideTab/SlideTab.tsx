@@ -7,6 +7,10 @@ import {Htag} from '../Htag/Htag';
 
 export const SlideTab = ({isOpen, data, ...props}: SlideTabProps): JSX.Element => {
 
+    if (!data) {
+        return <></>;
+    }
+
     return (
         <div className={cn(styles.slide, {[styles.active]: isOpen})} {...props}>
             <Htag color="white">{data.name}</Htag>
