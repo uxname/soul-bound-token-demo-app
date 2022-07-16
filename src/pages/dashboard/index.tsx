@@ -1,5 +1,5 @@
 import React, {ReactNode, useState} from 'react';
-import {AddressTag, Htag, P, SBTCard, AddCard, MyAccount, MySoul, PremiumTrader, Button, Input} from '../../components';
+import {AddressTag, Htag, P, SBTCard, AddCard, MyAccount, MySoul, PremiumTrader, Button, Input, SlideTab} from '../../components';
 import styles from './dashboard.module.scss';
 import {activateWallet} from '../../utils/activateWallet';
 import Modal from 'react-modal';
@@ -11,14 +11,23 @@ import {collAddress} from '../../utils/addresses';
 export default function DashboardPage(): ReactNode {
 
     const [wallet, setWallet] = useState<string>('Connect wallet');
-    const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [slideIsOpen, setSlideIsOpen] = useState(false);
 
     function openModal() {
-        setIsOpen(true);
+        setModalIsOpen(true);
     }
 
     function closeModal() {
-        setIsOpen(false);
+        setModalIsOpen(false);
+    }
+
+    function openSlide() {
+        setSlideIsOpen(true);
+    }
+
+    function closeSlide() {
+        setSlideIsOpen(false);
     }
 
     const connectWallet = async () => {
@@ -45,9 +54,9 @@ export default function DashboardPage(): ReactNode {
                     <li><span>Premium Club Member</span> by GrandBazar.io <AddressTag>0:b601...a1cd</AddressTag></li>
                 </ul>
                 <div className={styles.sbts}>
-                    <SBTCard image="/assets/sbt_img.png" address="0:b601...a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601...blabla"/>
-                    <SBTCard image="/assets/sbt_img.png" address="0:b601...a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601...blabla"/>
-                    <SBTCard image="/assets/sbt_img.png" address="0:b601...a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601...blabla"/>
+                    <SBTCard onClick={() => setSlideIsOpen(!slideIsOpen)} image="/assets/sbt_img.png" address="0:b601...a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601...blabla"/>
+                    <SBTCard onClick={() => setSlideIsOpen(!slideIsOpen)} image="/assets/sbt_img.png" address="0:b601...a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601...blabla"/>
+                    <SBTCard onClick={() => setSlideIsOpen(!slideIsOpen)} image="/assets/sbt_img.png" address="0:b601...a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601...blabla"/>
                     <AddCard onClick={() => openModal()}/>
                     <Modal
                         isOpen={modalIsOpen}
@@ -96,9 +105,7 @@ export default function DashboardPage(): ReactNode {
                 <button onClick={async () => areSoulsIdentical(await getInfoNft((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim()))}>Check valid soul</button>
                 <button onClick={async () => getJsonDataNft((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim())}>Get nft data</button>
             </div>
-            <div className={styles.sbt_info_side}>
-                <Htag color="white">Cross-Chain Master</Htag>
-            </div>
+            <SlideTab isOpen={slideIsOpen}/>
         </div>
     );
 }

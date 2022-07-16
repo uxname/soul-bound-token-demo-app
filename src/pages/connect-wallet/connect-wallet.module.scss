@@ -3,7 +3,6 @@
   grid-template-rows: 140px auto;
   min-height: 100vh;
   gap: 0 40px;
-  padding-bottom: 50px;
   grid-template-areas:
           "header"
           "body1";
@@ -15,6 +14,10 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 60px;
+}
+
+.body1 {
+  background: url('/assets/bg_blur.png') bottom left/30% no-repeat;
 }
 
 .connect {
