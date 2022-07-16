@@ -3,6 +3,9 @@ import {AddressTag, Htag, P, SBTCard, AddCard, MyAccount, MySoul, PremiumTrader,
 import styles from './exchange.module.scss';
 import {activateWallet} from '../../utils/activateWallet';
 import Modal from 'react-modal';
+import {_owners} from '../../utils/soulContractInteraction';
+import {getInfoNft, getJsonDataNft} from '../../utils/nftContractInteraction';
+import {collAddress} from '../../utils/addresses';
 
 const customStyles = {
     content: {
@@ -31,6 +34,13 @@ export default function ExchangePage(): ReactNode {
     const connectWallet = async () => {
         const connectWalletData = await activateWallet();
         setWallet(connectWalletData);
+    };
+
+    const areSoulsIdentical = (useNaftAddress: string) => {
+        console.log(collAddress);
+        console.log(useNaftAddress);
+        console.log(useNaftAddress === collAddress);
+        return useNaftAddress === collAddress;
     };
 
     return (
@@ -65,6 +75,12 @@ export default function ExchangePage(): ReactNode {
                 <MySoul/>
                 <PremiumTrader/>
                 <button onClick={() => connectWallet()}>{wallet}</button>
+                <input id={'soul_address_id'} placeholder={'soul contract address'}/>
+                <button onClick={() => _owners((document.getElementById('soul_address_id') as HTMLInputElement)?.value.trim())}>Owner</button>
+                <input id={'nft_address_id'} placeholder={'nft contract address'}/>
+                <button onClick={() => getInfoNft((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim())}>getInfoNft</button>
+                <button onClick={async () => areSoulsIdentical(await getInfoNft((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim()))}>Check valid soul</button>
+                <button onClick={async () => getJsonDataNft((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim())}>Get nft data</button>
             </div>
             <div className={styles.sbt_info_side}>
                 <Htag color="white">Cross-Chain Master</Htag>
