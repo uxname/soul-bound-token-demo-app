@@ -135,7 +135,7 @@ export default function DashboardPage(): ReactNode {
                         <div style={{display: 'flex', justifyContent: 'space-between',
                             alignItems: 'center', gap: '30px', marginTop: '30px'}}>
                             <Input error={inputNftError} errorText="Error. This SBT is not related to your Soul." id={'nft_address_id'}/>
-                            <Button appearance="purple" onClick={() => areSoulsIdentical((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim())}>sss</Button>
+                            <Button appearance="purple" onClick={() => areSoulsIdentical((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim())}>Import</Button>
                         </div>
                     </Modal>
                 </div>
