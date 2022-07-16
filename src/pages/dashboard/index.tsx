@@ -1,4 +1,4 @@
-import React, {ReactNode, useState} from 'react';
+import React, {ReactNode, useEffect, useState} from 'react';
 import {
     AddressTag,
     Htag,
@@ -13,17 +13,31 @@ import {
     SlideTab
 } from '../../components';
 import styles from './dashboard.module.scss';
-import {activateWallet} from '../../utils/activateWallet';
-import {_owners} from '../../utils/soulContractInteraction';
 import {getInfoNft, getJsonDataNft} from '../../utils/nftContractInteraction';
 import {collAddress} from '../../utils/addresses';
 import Modal from 'react-modal';
 
+interface INftData {
+    address: string,
+    image: string,
+    creator_name: string,
+    name: string,
+    description: string,
+    attributes: IAttributes[]
+}
+
+interface IAttributes {
+    key: string,
+    value: string
+}
+
 export default function DashboardPage(): ReactNode {
 
-    const [wallet, setWallet] = useState<string>('Connect wallet');
+    const [address, setAddress] = useState<string>('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [slideIsOpen, setSlideIsOpen] = useState(false);
+    const [inputNftError, setInputNftError] = useState(false);
+    const [nftsArray, setNftsArray] = useState<Array<INftData>>([]);
 
     function openModal() {
         setModalIsOpen(true);
@@ -33,17 +47,40 @@ export default function DashboardPage(): ReactNode {
         setModalIsOpen(false);
     }
 
-    const connectWallet = async () => {
-        const connectWalletData = await activateWallet();
-        setWallet(connectWalletData);
+    const areSoulsIdentical = async (useNftAddress: string) => {
+        try {
+            const adr = await getInfoNft(useNftAddress);
+            if (adr === collAddress) {
+                const nftData = JSON.parse(await getJsonDataNft(useNftAddress));
+                const arr = nftsArray;
+                // eslint-disable-next-line camelcase
+                const params: INftData = {address: useNftAddress, image: nftData.image, creator_name: nftData.creator_name, name: nftData.name, description: nftData.description, attributes: nftData.attributes};
+                arr.push(params);
+                setNftsArray(arr);
+                closeModal();
+            } else {
+                setInputNftError(true);
+            }
+        } catch (e) {
+            setInputNftError(true);
+        }
     };
 
-    const areSoulsIdentical = (useNaftAddress: string) => {
-        console.log(collAddress);
-        console.log(useNaftAddress);
-        console.log(useNaftAddress === collAddress);
-        return useNaftAddress === collAddress;
-    };
+    useEffect(() => {
+        (async () => {
+            const ever = await import('everscale-inpage-provider');
+            const inpageProvider = new ever.ProviderRpcClient();
+            if (!(await inpageProvider.hasProvider())) {
+                return 'Please install EverWallet';
+            } else {
+                const {accountInteraction} = await inpageProvider.rawApi.requestPermissions({
+                    permissions: ['basic', 'accountInteraction']
+                });
+                setAddress((String(accountInteraction?.publicKey)));
+                return accountInteraction?.publicKey;
+            }
+        })();
+    }, []);
 
     return (
         <div className={styles.layout}>
@@ -57,11 +94,15 @@ export default function DashboardPage(): ReactNode {
                     <li><span>Premium Club Member</span> by GrandBazar.io <AddressTag address="0:62dsfgte3342gdgerg6345v2ui5n2b593343"/></li>
                 </ul>
                 <div className={styles.sbts}>
-                    <SBTCard onClick={() => setSlideIsOpen(!slideIsOpen)} image="/assets/sbt_img.png" address="0:b601dafsd55s7898fdf4asf7hasij5fg89j3a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601fss7g5ds789d09ag7s69blabla"/>
-                    <SBTCard onClick={() => setSlideIsOpen(!slideIsOpen)} image="/assets/sbt_img.png" address="0:b601dafsd55s7898fdf4asf7hasij5fg89j3a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601fss7g5ds789d09ag7s69blabla"/>
-                    <SBTCard onClick={() => setSlideIsOpen(!slideIsOpen)} image="/assets/sbt_img.png" address="0:b601dafsd55s7898fdf4asf7hasij5fg89j3a1cd" ownerIcon="/assets/owner_icon.png" ownerAddress="0:b601fss7g5ds789d09ag7s69blabla"/>
+                    {nftsArray.map((nft, index) => {
+                        return <div key={index}>
+                            <SBTCard onClick={() => {
+                                setSlideIsOpen(!slideIsOpen);
+                            }} image={nft.image} name={nft.name} creator_name={nft.creator_name} address={nft.address} ownerIcon="/assets/owner_icon.png" ownerAddress={collAddress}/>
+                            <SlideTab isOpen={slideIsOpen} data={nft}/>
+                        </div>;
+                    })}
                     <AddCard onClick={() => openModal()}/>
-                    {/*<ModalError modalIsOpen={modalIsOpen} closeModal={closeModal} text="fndjsfjdbfjdbskjf"/>*/}
                     <Modal
                         isOpen={modalIsOpen}
                         onRequestClose={closeModal}
@@ -92,25 +133,20 @@ export default function DashboardPage(): ReactNode {
                         <P size="xxl" weight="bold" style={{textAlign: 'center'}}>Enter your SBT token address</P>
                         <div style={{display: 'flex', justifyContent: 'space-between',
                             alignItems: 'center', gap: '30px', marginTop: '30px'}}>
-                            <Input error={true} errorText="Error. This SBT is not related to your Soul."/>
-                            <Button appearance="purple">sss</Button>
+                            <Input error={inputNftError} errorText="Error. This SBT is not related to your Soul." id={'nft_address_id'}/>
+                            <Button appearance="purple" onClick={() => areSoulsIdentical((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim())}>sss</Button>
                         </div>
                     </Modal>
                 </div>
             </div>
             <div className={styles.sidebar}>
-                <MyAccount address="0:b601afa5fas76f4sa68as90as9s7ae0dchfghfffgd"/>
+                <MyAccount address={address}/>
                 <MySoul/>
-                <PremiumTrader/>
-                <button onClick={() => connectWallet()}>{wallet}</button>
-                <input id={'soul_address_id'} placeholder={'soul contract address'}/>
-                <button onClick={() => _owners((document.getElementById('soul_address_id') as HTMLInputElement)?.value.trim())}>Owner</button>
-                <input id={'nft_address_id'} placeholder={'nft contract address'}/>
-                <button onClick={() => getInfoNft((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim())}>getInfoNft</button>
-                <button onClick={async () => areSoulsIdentical(await getInfoNft((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim()))}>Check valid soul</button>
-                <button onClick={async () => getJsonDataNft((document.getElementById('nft_address_id') as HTMLInputElement)?.value.trim())}>Get nft data</button>
+                {nftsArray.length === 3
+                    ? <PremiumTrader/>
+                    : <></>
+                }
             </div>
-            <SlideTab isOpen={slideIsOpen}/>
         </div>
     );
 }

@@ -4,7 +4,8 @@ import styles from './SBTCard.module.scss';
 import {AddressTag} from '../AddressTag/AddressTag';
 import {P} from '../P/P';
 
-export const SBTCard = ({image, address, ownerIcon, ownerAddress, ...props}: SBTCardProps): JSX.Element => {
+// eslint-disable-next-line camelcase
+export const SBTCard = ({image, address, ownerIcon, ownerAddress, name, creator_name, ...props}: SBTCardProps): JSX.Element => {
     return (
         <div className={styles.sbt_card} {...props}>
             <div className={styles.top}>
@@ -12,12 +13,13 @@ export const SBTCard = ({image, address, ownerIcon, ownerAddress, ...props}: SBT
             </div>
             <div className={styles.info}>
                 <img src={image} alt=""/>
-                <P size="m" weight="bold">Experienced Trader Level 5</P>
+                <P size="m" weight="bold">{name}</P>
             </div>
             <div className={styles.bottom}>
                 <div className={styles.owner}>
                     <img src={ownerIcon} alt=""/>
-                    <P size="s" weight="bold">UniSwap</P>
+                    {/* eslint-disable-next-line camelcase */}
+                    <P size="s" weight="bold">{creator_name}</P>
                 </div>
                 <AddressTag size="s" address={ownerAddress}/>
             </div>

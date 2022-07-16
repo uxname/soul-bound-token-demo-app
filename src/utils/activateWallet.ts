@@ -2,7 +2,7 @@ export const activateWallet = async (): Promise<string> => {
     const ever = await import('everscale-inpage-provider');
     const inpageProvider = new ever.ProviderRpcClient();
     if (!(await inpageProvider.hasProvider())) {
-        return 'Please install EverWallet';
+        return 'Please install EVER Wallet';
     } else {
         await inpageProvider.disconnect();
         await inpageProvider.ensureInitialized();

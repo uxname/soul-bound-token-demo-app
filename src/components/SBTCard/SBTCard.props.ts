@@ -5,4 +5,6 @@ export interface SBTCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEl
     address: string;
     ownerIcon: string;
     ownerAddress: string;
+    name: string;
+    creator_name: string;
 }

@@ -5,20 +5,21 @@ import cn from 'classnames';
 import {P} from '../P/P';
 import {Htag} from '../Htag/Htag';
 
-export const SlideTab = ({isOpen, ...props}: SlideTabProps): JSX.Element => {
+export const SlideTab = ({isOpen, data, ...props}: SlideTabProps): JSX.Element => {
 
+    console.log({data});
     return (
         <div className={cn(styles.slide, {[styles.active]: !isOpen})} {...props}>
-            <Htag color="white">Cross-Chain Master</Htag>
-            <img src="/assets/sbt_img2.png" alt=""/>
-            <P size="xl" weight="bold">This SBT is distributed by Octus Bridge to the most active users with transfered volume over 100.000 USDT. </P>
+            <Htag color="white">{data.name}</Htag>
+            <img src={data.image} alt="" width={'450vw'}/>
+            <P size="xl" weight="bold">{data.description}</P>
             <div className={styles.property_value}>
-                <P size="m" weight="bold" style={{marginBottom: '10px'}}>Transferred value</P>
-                <P size="xl" weight="bold">185.000 USDT</P>
+                <P size="m" weight="bold" style={{marginBottom: '10px'}}>{data.attributes[0].key}</P>
+                <P size="xl" weight="bold">{data.attributes[0].value}</P>
             </div>
             <div className={styles.property_value}>
-                <P size="m" weight="bold" style={{marginBottom: '10px'}}>Distribution date</P>
-                <P size="xl" weight="bold">15 Nov 2021</P>
+                <P size="m" weight="bold" style={{marginBottom: '10px'}}>{data.attributes[1].key}</P>
+                <P size="xl" weight="bold">{data.attributes[1].value}</P>
             </div>
         </div>
     );
