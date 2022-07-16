@@ -16,6 +16,7 @@ import styles from './dashboard.module.scss';
 import {getInfoNft, getJsonDataNft} from '../../utils/nftContractInteraction';
 import {collAddress} from '../../utils/addresses';
 import Modal from 'react-modal';
+import Link from 'next/link';
 
 interface INftData {
     address: string,
@@ -89,9 +90,9 @@ export default function DashboardPage(): ReactNode {
                 <Htag style={{marginBottom: '15px'}}>Share your SBTs to onboard</Htag>
                 <P>Import the following SBTs to upgrade your trader profile:</P>
                 <ul className={styles.list}>
-                    <li><span>Experienced Trader Level 5</span> by Uniswap <AddressTag address="0:62dsfgte3342gdgerg6345v2ui5n2b593343"/></li>
-                    <li><span>Cross-Chain Master</span> by Octus Bridge <AddressTag address="0:62dsfgte3342gdgerg6345v2ui5n2b593343"/></li>
-                    <li><span>Premium Club Member</span> by GrandBazar.io <AddressTag address="0:62dsfgte3342gdgerg6345v2ui5n2b593343"/></li>
+                    <li><span>Experienced Trader Level 5</span> by Uniswap <Link href={`https://net.ever.live/accounts/accountDetails?id=${collAddress}`}><a target={'_blank'} style={{textDecoration: 'none'}}><AddressTag address={collAddress}/></a></Link></li>
+                    <li><span>Cross-Chain Master</span> by Octus Bridge <Link href={`https://net.ever.live/accounts/accountDetails?id=${collAddress}`}><a target={'_blank'} style={{textDecoration: 'none'}}><AddressTag address={collAddress}/></a></Link></li>
+                    <li><span>Premium Club Member</span> by GrandBazar.io <Link href={`https://net.ever.live/accounts/accountDetails?id=${collAddress}`}><a target={'_blank'} style={{textDecoration: 'none'}}><AddressTag address={collAddress}/></a></Link></li>
                 </ul>
                 <div className={styles.sbts}>
                     {nftsArray.map((nft, index) => {
