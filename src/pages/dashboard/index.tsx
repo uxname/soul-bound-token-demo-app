@@ -99,7 +99,7 @@ export default function DashboardPage(): ReactNode {
                 <Htag style={{marginBottom: '15px'}}>Share your SBTs to onboard</Htag>
                 <P>Import the following SBTs to upgrade your trader profile:</P>
                 <ul className={styles.list}>
-                    <li><span>Experienced Trader Level 5</span> by Uniswap <Link
+                    <li><span>Experienced Trader Level 5</span> by FlatQube <Link
                         href={`https://net.ever.live/accounts/accountDetails?id=${collAddress}`}><a target={'_blank'}
                             style={{textDecoration: 'none'}}><AddressTag
                                 address={collAddress}/></a></Link></li>
