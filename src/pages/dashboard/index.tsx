@@ -22,14 +22,6 @@ export default function DashboardPage(): ReactNode {
         setModalIsOpen(false);
     }
 
-    function openSlide() {
-        setSlideIsOpen(true);
-    }
-
-    function closeSlide() {
-        setSlideIsOpen(false);
-    }
-
     const connectWallet = async () => {
         const connectWalletData = await activateWallet();
         setWallet(connectWalletData);
